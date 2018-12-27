@@ -1,4 +1,8 @@
 # Git Easy Changelog
+[![](https://img.shields.io/pypi/v/giteasychangelog.svg)](https://img.shields.io/pypi/v/giteasychangelog)
+[![](https://img.shields.io/travis/EricHorvat/giteasychangelog.svg)](https://img.shields.io/travis/EricHorvat/giteasychangelog)
+[![](https://readthedocs.org/projects/giteasychangelog/badge/?version=latest)](https://readthedocs.org/projects/giteasychangelog/badge/?version=latest)
+[![](https://pyup.io/repos/github/EricHorvat/giteasychangelog/shield.svg)](https://pyup.io/repos/github/EricHorvat/giteasychangelog/)
 
 This project helps at managing yours REALEASE/CHANGELOG `.md` files, avoiding git conflicts as it use one file per
 change reported in the final release file.
@@ -23,3 +27,10 @@ change reported in the final release file.
 #### Example
 
 You can test the project in `example` branch, by simple running `summarise.py`
+
+####Credits
+
+This package was created with Cookiecutter_ and the `audreyr/cookiecutter-pypackage`_ project template.
+
+[Cookiecutter](https://github.com/audreyr/cookiecutter)  
+[audreyr/cookiecutter-pypackage](https://github.com/audreyr/cookiecutter-pypackage)
