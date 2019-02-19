@@ -24,7 +24,7 @@ change reported in the final release file.
 
 #### Example
 
-You can test the project in `example` branch, by simple running `summarise.py`
+You can test the project in `example` branch, by simple running `giteasychangelog`
 
 #### Credits
 
