@@ -32,7 +32,7 @@ def main(args=None):
         if "header.md" in ls_ans:
             with open("header.md", "r") as header_file:
                 changelog_file.writelines(header_file.readlines())
-                changelog_file.writelines("\n\n")
+                changelog_file.writelines("\n")
         for folder in folders:
             changelog_file.write(str(folder))
             inner_files = list(filter(lambda elem: elem.endswith(".md") ,os.listdir("./" + str(folder))))
