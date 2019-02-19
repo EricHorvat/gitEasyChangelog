@@ -4,7 +4,7 @@ import string
 import pytest
 
 
-@pytest.fixture(scope="module")
+@pytest.fixture(scope="function")
 def working_folder():
     tmp_folder_name = (''.join(
       random.choices(string.ascii_uppercase + string.digits, k=6)
