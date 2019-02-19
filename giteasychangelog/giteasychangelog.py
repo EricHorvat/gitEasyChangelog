@@ -35,7 +35,7 @@ def main(args=None):
                 changelog_file.writelines("\n")
         for folder in folders:
             changelog_file.write(str(folder))
-            inner_files = list(filter(lambda elem: elem.endswith(".md") ,os.listdir("./" + str(folder))))
+            inner_files = list(sorted(filter(lambda elem: elem.endswith(".md") ,os.listdir("./" + str(folder)))))
             if "date.md" in inner_files:
                 changelog_file.write(" [")
                 addFile("./" + str(folder) + "/date.md",changelog_file)
