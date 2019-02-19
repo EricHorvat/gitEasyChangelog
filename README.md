@@ -7,8 +7,6 @@
 This project helps at managing yours REALEASE/CHANGELOG `.md` files, avoiding git conflicts as it use one file per
 change reported in the final release file.
 
-**Up to the moment**, this is **_not_** a python package.
-
 ## Usage
 ### Basic Usage
 
