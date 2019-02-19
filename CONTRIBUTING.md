@@ -7,9 +7,9 @@ helps, and credit will always be given.
 You can contribute in many ways:
 
 Types of Contributions
-----------
+----------------------
 
-###Report Bugs
+### Report Bugs
 
 Report bugs at https://github.com/EricHorvat/giteasychangelog/issues.
 
@@ -19,23 +19,23 @@ If you are reporting a bug, please include:
 * Any details about your local setup that might be helpful in troubleshooting.
 * Detailed steps to reproduce the bug.
 
-###Fix Bugs
+### Fix Bugs
 
 Look through the GitHub issues for bugs. Anything tagged with "bug" and "help
 wanted" is open to whoever wants to implement it.
 
-###Implement Features
+### Implement Features
 
 Look through the GitHub issues for features. Anything tagged with "enhancement"
 and "help wanted" is open to whoever wants to implement it.
 
-###Write Documentation
+### Write Documentation
 
 gitEasyChangelog could always use more documentation, whether as part of the
 official gitEasyChangelog docs, in docstrings, or even on the web in blog posts,
 articles, and such.
 
-###Submit Feedback
+### Submit Feedback
 
 The best way to send feedback is to file an issue at https://github.com/EricHorvat/giteasychangelog/issues.
 
@@ -47,7 +47,7 @@ If you are proposing a feature:
   are welcome :)
 
 Get Started!
---------
+------------
 
 Ready to contribute? Here's how to set up `giteasychangelog` for local development.
 

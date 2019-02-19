@@ -1,1 +1,1 @@
-.. include:: ../HISTORY.rst
+.. mdinclude:: ../RELEASE.md

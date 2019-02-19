@@ -1,5 +1,5 @@
 Welcome to gitEasyChangelog's documentation!
-======================================
+============================================
 
 .. toctree::
    :maxdepth: 2
