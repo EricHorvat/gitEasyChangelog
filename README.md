@@ -1,6 +1,6 @@
 # Git Easy Changelog
 [![](https://img.shields.io/pypi/v/giteasychangelog.svg)](https://img.shields.io/pypi/v/giteasychangelog)
-[![](https://img.shields.io/travis/EricHorvat/giteasychangelog.svg)](https://img.shields.io/travis/EricHorvat/giteasychangelog)
+[![](https://img.shields.io/travis/EricHorvat/gitEasyChangelog.svg)](https://img.shields.io/travis/EricHorvat/gitEasyChangelog)
 [![](https://readthedocs.org/projects/giteasychangelog/badge/?version=latest)](https://readthedocs.org/projects/giteasychangelog/badge/?version=latest)
 [![](https://pyup.io/repos/github/EricHorvat/giteasychangelog/shield.svg)](https://pyup.io/repos/github/EricHorvat/giteasychangelog/)
 
