@@ -11,7 +11,7 @@ with open('README.md') as readme_file:
 with open('RELEASE.md') as release_file:
     release = release_file.read()
 
-requirements = ['Click>=6.0', ]
+requirements = ['Click>=6.0', 'packaging>=18.0']
 
 setup_requirements = ['pytest-runner', ]
 
@@ -33,7 +33,8 @@ setup(
         'Programming Language :: Python :: 3.6',
         'Programming Language :: Python :: 3.7',
     ],
-    description="A python tool which helps whit changelog/release file conflicts with git",
+    description="A python tool which helps whit changelog/release file "
+                "conflicts with git",
     entry_points={
         'console_scripts': [
             'giteasychangelog=giteasychangelog.cli:main',

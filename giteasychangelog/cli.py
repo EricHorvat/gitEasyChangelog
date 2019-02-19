@@ -4,13 +4,15 @@
 import sys
 import click
 
+import giteasychangelog.giteasychangelog as changelog
+
 
 @click.command()
 def main(args=None):
     """Console script for giteasychangelog."""
-    click.echo("Replace this message by putting your code into "
-               "giteasychangelog.cli.main")
-    click.echo("See click documentation at http://click.pocoo.org/")
+    # TODO CONTROL ARGS
+
+    changelog.main(args)
     return 0
 
 
