@@ -2,7 +2,7 @@
 [![](https://img.shields.io/pypi/v/giteasychangelog.svg)](https://img.shields.io/pypi/v/giteasychangelog)
 [![](https://img.shields.io/travis/EricHorvat/gitEasyChangelog.svg)](https://img.shields.io/travis/EricHorvat/gitEasyChangelog)
 [![](https://readthedocs.org/projects/giteasychangelog/badge/?version=latest)](https://readthedocs.org/projects/giteasychangelog/badge/?version=latest)
-[![](https://pyup.io/repos/github/EricHorvat/giteasychangelog/shield.svg)](https://pyup.io/repos/github/EricHorvat/giteasychangelog/)
+[![](https://pyup.io/repos/github/EricHorvat/gitEasyChangelog/shield.svg)](https://pyup.io/repos/github/EricHorvat/gitEasyChangelog/)
 
 This project helps at managing yours REALEASE/CHANGELOG `.md` files, avoiding git conflicts as it use one file per
 change reported in the final release file.
