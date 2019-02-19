@@ -12,11 +12,11 @@ change reported in the final release file.
 ## Usage
 ### Basic Usage
 
-1. Download the repository content, and extract it at a new `CHANGELOG` folder.
-1. Remove the `example` folder.
+1. Install by `pip install giteasychangelog`.
+1. Create a `CHANGELOG` folder.
 1. Create a folder for the next version.
 1. Add a new `.md` single line file for each change that should be reported.
-1. Run `summarise.py`
+1. Run `giteasychangelog`
 1. Go back to step 3.
 
 ### Advanced options
@@ -28,7 +28,7 @@ change reported in the final release file.
 
 You can test the project in `example` branch, by simple running `summarise.py`
 
-####Credits
+#### Credits
 
 This package was created with Cookiecutter_ and the `audreyr/cookiecutter-pypackage`_ project template.
 
