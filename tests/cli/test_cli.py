@@ -16,8 +16,7 @@ def test_command_line_interface(working_folder):
     result = runner.invoke(cli.main)
     assert result.exit_code == 0
     assert '' in result.output
-    with open('{folder}/RELEASE.md'
-              .format(folder=working_folder)) as release_file:
+    with open(f'{working_folder}/RELEASE.md') as release_file:
         assert release_file.readline() == ''
     help_result = runner.invoke(cli.main, ['--help'])
     assert help_result.exit_code == 0

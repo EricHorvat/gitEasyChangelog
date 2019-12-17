@@ -10,9 +10,9 @@ def working_folder():
     tmp_folder_name = ''.join(
       random.choice(string.ascii_uppercase + string.digits
                     ) for _ in range(6))
-    full_folder_name = '/tmp/{name}'.format(name=tmp_folder_name)
+    full_folder_name = f'/tmp/{tmp_folder_name}'
     os.mkdir(full_folder_name)
-    os.mkdir('{folder}/CHANGELOG/'.format(folder=full_folder_name))
+    os.mkdir(f'{full_folder_name}/CHANGELOG/')
     os.chdir(full_folder_name)
     yield full_folder_name
-    os.system('rm -fr {folder}'.format(folder=full_folder_name))
+    os.system(f'rm -fr {full_folder_name}')
