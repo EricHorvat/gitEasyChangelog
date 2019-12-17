@@ -28,7 +28,7 @@ You can test the project in `example` branch, by simple running `giteasychangelo
 
 #### Credits
 
-This package was created with Cookiecutter_ and the `audreyr/cookiecutter-pypackage`_ project template.
+This package was created with _[Cookiecutter][Cookiecutter]_ and the _[audreyr/cookiecutter-pypackage][audreyr_cookiecutter_pypackage]_ project template.
 
-[Cookiecutter](https://github.com/audreyr/cookiecutter)  
-[audreyr/cookiecutter-pypackage](https://github.com/audreyr/cookiecutter-pypackage)
+[Cookiecutter]:https://github.com/audreyr/cookiecutter
+[audreyr_cookiecutter_pypackage]:https://github.com/audreyr/cookiecutter-pypackage
