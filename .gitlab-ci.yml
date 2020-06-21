@@ -59,10 +59,6 @@ stages:
     - if: '$TEST_ALPHA'
       when: on_success
 
-unit_test 3.4:
-    extends: .latest_unit_test_base
-    image: python:3.4
-
 unit_test 3.5:
     extends: .latest_unit_test_base
     image: python:3.5
@@ -83,10 +79,6 @@ unit_test 3.9:
     extends: .latest_unit_test_base
     image: python:3.9-rc
     allow_failure: true
-
-alpha_unit_test 3.4:
-    extends: .alpha_unit_test_base
-    image: python:3.4
 
 alpha_unit_test 3.5:
     extends: .alpha_unit_test_base
