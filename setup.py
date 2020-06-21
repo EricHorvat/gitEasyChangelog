@@ -11,11 +11,23 @@ with open('README.md') as readme_file:
 with open('RELEASE.md') as release_file:
     release = release_file.read()
 
-requirements = ['Click>=6.0', 'packaging>=18.0']
+requirements = ['Click', 'packaging']
 
 setup_requirements = ['pytest-runner', ]
 
-test_requirements = ['pytest', ]
+extra_req = {
+        'dev': [
+            'giteasychangelog'
+        ],
+        'test': [
+            'pytest',
+            'pytest-cov',
+        ],
+        'docs': [
+            'mkdocs',
+            'mkdocs-material',
+        ]
+    }
 
 setup(
     author="Eric Horvat",
@@ -38,6 +50,7 @@ setup(
             'giteasychangelog=giteasychangelog.cli:main',
         ],
     },
+    extras_require=extra_req,
     install_requires=requirements,
     license="GNU General Public License v3",
     long_description=readme + '\n\n' + release,
@@ -47,7 +60,6 @@ setup(
     packages=find_packages(include=['giteasychangelog']),
     setup_requires=setup_requirements,
     test_suite='tests',
-    tests_require=test_requirements,
     url='https://github.com/EricHorvat/giteasychangelog',
     version='0.1.0',
     zip_safe=False,
