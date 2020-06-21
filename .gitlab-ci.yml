@@ -1,0 +1,109 @@
+variables:
+    TZ: "America/New_York"
+    PIP_CACHE_DIR: "$CI_PROJECT_DIR/.cache/pip"
+    APT_CACHE_DIR: "$CI_PROJECT_DIR/apt-cache"
+
+cache:
+  paths:
+    - "$CI_PROJECT_DIR/.cache/pip"
+    - "$CI_PROJECT_DIR/apt-cache"
+
+
+before_script:
+    - mkdir -pv $APT_CACHE_DIR
+
+stages:
+    - testing
+
+.unit_tests_base:
+    stage: testing
+    coverage: '/TOTAL\s+\d+\s+\d+\s+(\d+%)/'
+    script:
+        - source venv/bin/activate
+        - mkdir run_from
+        - cd run_from && mkdir logs && pytest ../tests/ --capture=sys -v --cov=../giteasychangelog --color=yes --disable-warnings --junitxml=report.xml
+        - cp report.xml ../
+    artifacts:
+      reports:
+        junit: report.xml
+      paths:
+        - dist/*
+        - run_from/logs/*
+      expire_in: 7 days
+    rules:
+      - if: '$INTEGRATION'
+        when: never
+      - if: '$CI_COMMIT_REF_NAME =~ /^.*ci-test.*$/'
+        when: never
+      - when: on_success
+
+.latest_unit_test_base:
+  extends: .unit_tests_base
+  before_script:
+      - pip install virtualenv
+      - virtualenv venv
+      - source venv/bin/activate
+      - pip install .[test]
+
+.alpha_unit_test_base:
+  extends: .unit_tests_base
+  before_script:
+      - pip install virtualenv
+      - virtualenv venv
+      - source venv/bin/activate
+      - pip install --pre .[test] #It does not override alphas
+  allow_failure: true
+  rules:
+    - if: '$CI_COMMIT_REF_NAME =~ /^(dev|master)$/'
+      when: on_success
+    - if: '$TEST_ALPHA'
+      when: on_success
+
+unit_test 3.4:
+    extends: .latest_unit_test_base
+    image: python:3.4
+
+unit_test 3.5:
+    extends: .latest_unit_test_base
+    image: python:3.5
+
+unit_test 3.6:
+    extends: .latest_unit_test_base
+    image: python:3.6
+
+unit_test 3.7:
+    extends: .latest_unit_test_base
+    image: python:3.7
+
+unit_test 3.8:
+    extends: .latest_unit_test_base
+    image: python:3.8
+
+unit_test 3.9:
+    extends: .latest_unit_test_base
+    image: python:3.9-rc
+    allow_failure: true
+
+alpha_unit_test 3.4:
+    extends: .alpha_unit_test_base
+    image: python:3.4
+
+alpha_unit_test 3.5:
+    extends: .alpha_unit_test_base
+    image: python:3.5
+
+alpha_unit_test 3.6:
+    extends: .alpha_unit_test_base
+    image: python:3.6
+
+alpha_unit_test 3.7:
+    extends: .alpha_unit_test_base
+    image: python:3.7
+
+alpha_unit_test 3.8:
+    extends: .alpha_unit_test_base
+    image: python:3.8
+
+alpha_unit_test 3.9:
+    extends: .alpha_unit_test_base
+    image: python:3.9-rc
