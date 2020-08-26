@@ -6,7 +6,7 @@ from re import search
 
 from setuptools import setup, find_packages
 
-with open('faraday_agent_dispatcher/__init__.py', 'rt', encoding='utf8') as f:
+with open('giteasychangelog/__init__.py', 'rt', encoding='utf8') as f:
     version = search(r'__version__ = \'(.*?)\'', f.read()).group(1)
 
 with open('RELEASE.md') as release_file:
