@@ -19,6 +19,10 @@ stages:
     stage: testing
     coverage: '/TOTAL\s+\d+\s+\d+\s+(\d+%)/'
     script:
+        - pip install virtualenv
+        - virtualenv venv
+        - source venv/bin/activate
+        - pip install $PIP_FLAGS .[test]
         - source venv/bin/activate
         - mkdir run_from
         - cd run_from && mkdir logs && pytest ../tests/ --capture=sys -v --cov=../giteasychangelog --color=yes --disable-warnings --junitxml=report.xml
@@ -31,8 +35,6 @@ stages:
         - run_from/logs/*
       expire_in: 7 days
     rules:
-      - if: '$INTEGRATION'
-        when: never
       - if: '$CI_COMMIT_REF_NAME =~ /^.*ci-test.*$/'
         when: never
       - when: on_success
@@ -40,18 +42,11 @@ stages:
 .latest_unit_test_base:
   extends: .unit_tests_base
   before_script:
-      - pip install virtualenv
-      - virtualenv venv
-      - source venv/bin/activate
-      - pip install .[test]
 
 .alpha_unit_test_base:
   extends: .unit_tests_base
-  before_script:
-      - pip install virtualenv
-      - virtualenv venv
-      - source venv/bin/activate
-      - pip install --pre .[test] #It does not override alphas
+  variables:
+    PIP_FLAGS: --pre
   allow_failure: true
   rules:
     - if: '$CI_COMMIT_REF_NAME =~ /^(dev|master)$/'
@@ -83,19 +78,24 @@ unit_test 3.9:
 alpha_unit_test 3.5:
     extends: .alpha_unit_test_base
     image: python:3.5
+    allow_failure: true
 
 alpha_unit_test 3.6:
     extends: .alpha_unit_test_base
     image: python:3.6
+    allow_failure: true
 
 alpha_unit_test 3.7:
     extends: .alpha_unit_test_base
     image: python:3.7
+    allow_failure: true
 
 alpha_unit_test 3.8:
     extends: .alpha_unit_test_base
     image: python:3.8
+    allow_failure: true
 
 alpha_unit_test 3.9:
     extends: .alpha_unit_test_base
     image: python:3.9-rc
+    allow_failure: true
