@@ -12,4 +12,4 @@ python:
 install: pip install -U .[test]
 
 # Command to run tests, e.g. python setup.py test
-script: pytest ../tests/ --capture=sys -v --cov=../giteasychangelog --color=yes --disable-warnings
+script: pytest tests/ --capture=sys -v --cov=../giteasychangelog --color=yes --disable-warnings
