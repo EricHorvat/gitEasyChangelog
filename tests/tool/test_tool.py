@@ -13,10 +13,10 @@ def default_release_filename(working_folder):
     return '{folder}/RELEASE.md'.format(folder=working_folder)
 
 
-def compare_final_file_with_expected(release_file_name,expected_text):
+def compare_final_file_with_expected(release_file_name, expected_text):
     with open(release_file_name, 'r') as release_file:
-        for line in expected_text.split('\n'):
-            assert line == release_file.readline().strip('\n')
+        content = release_file.read()
+        assert content == expected_text
 
 
 def test_header_footer(working_folder):
@@ -36,12 +36,17 @@ def test_header_footer(working_folder):
 
 
 def test_versions(working_folder):
-    preversion = '{folder}/0.1'.format(folder=working_folder)
-    version = '{folder}/0.2'.format(folder=working_folder)
-    preversion_content = '{folder}/0.1'
-    version_content = '{folder}/0.2'
-    os.mkdir(preversion)
-    os.mkdir(version)
+    preversion = 0.1
+    version = 0.2
+    preversion_folder = '{folder}/{version}'.format(folder=working_folder,
+                                                    version=preversion)
+    version_folder = '{folder}/{version}'.format(folder=working_folder,
+                                                 version=version)
+    content = 'SOME_{version}_CONTENT'
+    preversion_content = content.format(version=preversion)
+    version_content = content.format(version=version)
+    os.mkdir(preversion_folder)
+    os.mkdir(version_folder)
     with open('{folder}/some.md'.format(
       folder=preversion), 'w+') as preversion_file:
         preversion_file.write(preversion_content)
@@ -50,10 +55,10 @@ def test_versions(working_folder):
         version_file.write(version_content)
 
     giteasychangelog.main()
-    expected_text= "0.2:\n---\n * {version_content}\n\n0.1:\n---\n" \
-                   " * {preversion_content}\n"\
-                   .format(version_content=version_content,
-                           preversion_content=preversion_content)
+    expected_text = "0.2:\n---\n * {version_content}\n\n0.1:\n---\n" \
+                    " * {preversion_content}\n\n"\
+                    .format(version_content=version_content,
+                            preversion_content=preversion_content)
     compare_final_file_with_expected(default_release_filename(working_folder),
                                      expected_text)
 
@@ -75,7 +80,7 @@ def test_date(working_folder):
 
     giteasychangelog.main()
     expected_text = "0.2 [{date_content}]:\n---\n * {version_content}\n" \
-                    " * {rev_version_content}\n" \
+                    " * {rev_version_content}\n\n" \
                     .format(version_content=version_content,
                             rev_version_content=version_content[::-1],
                             date_content=date_content)
