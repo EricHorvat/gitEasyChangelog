@@ -19,9 +19,11 @@ def match(elem):
 IGNORED_FILES = ["date.md"]
 
 
-def addFile(filename,changelog_file):
+def addFile(filename, changelog_file):
     with open(filename, "r") as file:
-        changelog_file.writelines(file.readlines())
+        lines = file.readlines()
+        changelog_file.writelines(lines[:-1])
+        changelog_file.write(lines[-1].rstrip("\n"))
 
 
 def main(args=None):

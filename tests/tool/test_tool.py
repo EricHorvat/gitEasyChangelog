@@ -42,7 +42,7 @@ def test_versions(working_folder):
                                                     version=preversion)
     version_folder = '{folder}/{version}'.format(folder=working_folder,
                                                  version=version)
-    content = 'SOME_{version}_CONTENT'
+    content = 'SOME_{version}\n_CONTENT'
     preversion_content = content.format(version=preversion)
     version_content = content.format(version=version)
     os.mkdir(preversion_folder)
@@ -52,7 +52,7 @@ def test_versions(working_folder):
         preversion_file.write(preversion_content)
     with open('{folder}/other.md'.format(
       folder=version), 'w+') as version_file:
-        version_file.write(version_content)
+        version_file.write(version_content+"\n")
 
     giteasychangelog.main()
     expected_text = "0.2:\n---\n * {version_content}\n\n0.1:\n---\n" \
