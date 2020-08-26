@@ -9,9 +9,6 @@ from setuptools import setup, find_packages
 with open('faraday_agent_dispatcher/__init__.py', 'rt', encoding='utf8') as f:
     version = search(r'__version__ = \'(.*?)\'', f.read()).group(1)
 
-with open('README.md') as readme_file:
-    readme = readme_file.read()
-
 with open('RELEASE.md') as release_file:
     release = release_file.read()
 
@@ -57,7 +54,7 @@ setup(
     extras_require=extra_req,
     install_requires=requirements,
     license="GNU General Public License v3",
-    long_description=readme + '\n\n' + release,
+    long_description=release,
     include_package_data=True,
     keywords='giteasychangelog',
     name='giteasychangelog',
