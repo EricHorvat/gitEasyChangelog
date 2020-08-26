@@ -2,14 +2,14 @@
 
 language: python
 python:
-  - 3.9
+  - 3.9-dev
   - 3.8
   - 3.7
   - 3.6
   - 3.5
 
 # Command to install dependencies, e.g. pip install -r requirements.txt --use-mirrors
-install: pip install -U .[test]
+install: pip install -U .[test] && pip install -U pytest>=4.6
 
 # Command to run tests, e.g. python setup.py test
-script: pytest tests/ --capture=sys -v --cov=../giteasychangelog --color=yes --disable-warnings
+script: pytest tests/ --capture=sys -v --cov=giteasychangelog --color=yes --disable-warnings

@@ -20,7 +20,7 @@ extra_req = {
             'giteasychangelog'
         ],
         'test': [
-            'pytest',
+            'pytest',  # >= travis requirement
             'pytest-cov',
         ],
         'docs': [
