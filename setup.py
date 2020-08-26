@@ -1,9 +1,13 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
+from re import search
 
 """The setup script."""
 
 from setuptools import setup, find_packages
+
+with open('faraday_agent_dispatcher/__init__.py', 'rt', encoding='utf8') as f:
+    version = search(r'__version__ = \'(.*?)\'', f.read()).group(1)
 
 with open('README.md') as readme_file:
     readme = readme_file.read()
@@ -61,6 +65,6 @@ setup(
     setup_requires=setup_requirements,
     test_suite='tests',
     url='https://github.com/EricHorvat/giteasychangelog',
-    version='0.1.0',
+    version=version,
     zip_safe=False,
 )
